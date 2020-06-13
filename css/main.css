@@ -25,7 +25,8 @@ button{
 
 padding-top: 30px;
 color:white;
-width:25%;
+
+text-align: center;
 }
 
 .dist{
