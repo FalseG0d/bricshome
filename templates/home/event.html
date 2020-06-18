@@ -1,0 +1,22 @@
+{% extends 'main.html' %}{% load static %} {% block content %}
+<h2 id="reoprts" class="heads"><strong>{{event.name}}</strong></h2>
+<br>
+<div class="gallery">
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <img style="width: 100%;" src="{{event.image.url}}" alt="">
+    </div><br>
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <p class="btn btn-success"><strong>{{event.time}}</strong></p>
+    </div>
+    <hr><br>
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <p>{{event.description}}</p>
+    </div>
+    <hr><br>
+    <div class="row">
+        <h2 id="reoprts" class="heads"><strong>Venue</strong></h2><br><br>
+        <iframe src="{{event.venue}}" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+</div>
+
+{% endblock %}

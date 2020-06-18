@@ -1,0 +1,20 @@
+{% extends 'main.html' %}{% load static %} {% block content %}
+<h2 id="reoprts" class="heads"><strong>{{report.title}}</strong></h2>
+<br>
+<div class="gallery">
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <img style="width: 100%;" src="{{report.image.url}}" alt="">
+    </div><br>
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <p class="btn btn-success"><strong>{{report.created}}</strong></p>
+        <p class="btn btn-danger"><strong>Author:   </strong>{{report.author}}</p>
+        <a class="btn btn-info" href="{{report.pdf.url}}">Download Complete Pdf</a>
+    </div>
+    <hr><br>
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <p>{{report.complete}}</p>
+    </div>
+    <hr><br>
+</div>
+
+{% endblock %}

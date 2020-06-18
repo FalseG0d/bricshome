@@ -1,0 +1,18 @@
+{% extends 'main.html' %}{% load static %} {% block content %}
+<h1 class="heads"><strong>Video</strong></h1>
+<hr>
+
+<div class="row" style="align-items: center;">
+    {% for video in videos %}
+    <div class="col-lg-6">
+        <div class="abc">
+            <iframe width="75%" height="333px" src="{{video.source_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <p class="vidcontent">{{video.video_content}}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

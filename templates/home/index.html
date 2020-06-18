@@ -1,0 +1,164 @@
+{% extends 'main.html' %}{% load static %} {% block content %}
+<!-- slider -->
+<div id="home" class="carousel slide" data-ride="carousel" data-interval="8000">
+
+    <div class="carousel-inner">
+
+        <div class="camera-icon hidden-sm hidden-xs">
+            <div class="circle">
+                <img style="width: 60%;" src="{{about.logo.url}}">
+            </div>
+        </div>
+
+        {% for slide in sliders %} {% if slide.first %}
+        <div class="item active">
+            <img width="100%" src="{{slide.image.url}}" alt="">
+        </div>
+        {% else %}
+        <div class="item">
+            <img src="{{slide.image.url}}" alt="">
+        </div>
+        {% endif %} {% endfor %}
+    </div>
+    <a class="left carousel-control" href="#carousel-header" role="button" data-slide="next">
+        <img src="{% static 'img/left.png' %}" alt="Previous">
+    </a>
+    <a class="right carousel-control" href="#carousel-header" role="button" data-slide="next">
+        <img src="{% static 'img/right.png' %}" alt="Next">
+    </a>
+</div>
+
+
+<!-- Block -->
+<div id="about" class="content-block content-block-cyan">
+    <div class="demo">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1><strong>Events: {{event.name}}</strong></h1>
+                <a type="btn" href="{% url 'events' %}" class="btn btn-success btn-lg"><strong>View All</strong></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Content -->
+<h2 class="heads"><strong>About Us</strong></h2>
+
+<div class="content">
+
+    <p class="pad">{{about.about_abstract}}</p>
+    <br>
+    <a class="btn btn-success" style="float: right;" href="{% url 'about' %}">View All</a>
+
+</div>
+
+<h2 id="history" class="heads"><strong>Our History</strong></h2>
+<div class="content">
+
+    <p class="pad">{{about.history_abstract}}</p>
+    <br>
+    <a class="btn btn-success" style="float: right;" href="{% url 'history' %}">View All</a>
+</div>
+
+
+<h2 id="news" class="heads"><strong>Reports:</strong> {{report.name}}</h2>
+
+<div class="content">
+    <p class="pad">{{report.abstract}}</p>
+    <br>
+    <a class="btn btn-success" style="float: right;" href="{% url 'reports' %}">View All</a>
+</div>
+
+<!-- Photo Gallery -->
+
+<h2 id="gallery" class="heads"><strong>Photo Gallery</strong></h2>
+<hr>
+<div class="gallery">
+
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+
+        {% for image in images%}
+        <div class="col-lg-4 col-md-6">
+            <img src="{{image.image.url}}" class="pics-no-fade">
+        </div>
+        {% endfor %}
+    </div>
+    <div clss="row">
+        <a href="{% url 'gallery' %}" class="btn btn-success">View All</a>
+    </div>
+</div>
+
+<!-- Video -->
+
+<h1 class="heads"><strong>Video</strong></h1>
+<hr>
+
+<div class="gallery row" style="display:flex; flex-wrap: wrap;align-items: center;">
+    <div class="row">
+        {% for video in videos %}
+
+        <div class="col-lg-6">
+            <div class="abc">
+                <iframe width="75%" height="333px" src="{{video.source_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <p class="vidcontent">{{video.video_content}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div clss="row">
+        <br><br><br>
+        <a href="{% url 'videogallery' %}" class="btn btn-success">View All</a>
+    </div>
+
+
+</div>
+
+
+<!-- Contact -->
+
+
+<h1 id="contact" class="heads"><strong>Contact Us</strong></h1>
+<hr>
+
+<div id="contact_us" class="content-block content-block-cyan">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2 style="color: white;"><strong>Contact Us</strong></h2><br><br>
+
+                <form action="{% url 'mail' %}" method="POST">
+                    {% csrf_token %} Email:
+                    <input required="true" name="email" type="email"><br><br> Name:
+                    <input required="true" name="name" type="text"><br><br> Subject:
+                    <input required="true" name="subject" type="text"><br><br> Body:
+                    <input required="true" name="body" type="text"><br><br>
+                    <input type="submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact">
+    <h2 class="dist"><strong>Better Yet See You In Person!!!</strong></h2>
+    <section>
+        <iframe src="{{about.map_snippet}}" width="50%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </section>
+    <p class="dist"><strong>We love our customers, so feel free to visit during normal business hours.</strong></p>
+
+    <a type="btn" class="btn btn-success btn-lg" target="blank" href="https://web.whatsapp.com/"><strong>Message us on Whatsapp</strong><br>{{about.number}}</a>
+
+    <h2 class="dist"><strong>BRICS International Forum</strong></h4>
+        <section style="align-items: center;">
+            <div class="row">
+                {% for link in links %}
+                <a href="{{link.link}}" target="blank" class="{{link.icon}}"></a>
+                {% endfor %}
+            </div>
+        </section>
+</div>
+<hr> {% endblock %}

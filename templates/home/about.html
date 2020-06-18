@@ -1,0 +1,10 @@
+{% extends 'main.html' %}{% load static %} {% block content %}
+<h2 id="about" class="heads"><strong>About Us</strong></h2>
+<br>
+<div class="gallery">
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <p>{{about.about}}</p>
+    </div>
+</div>
+
+{% endblock %}

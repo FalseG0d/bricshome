@@ -1,0 +1,15 @@
+{% extends 'main.html' %}{% load static %} {% block content %}
+<h2 id="reoprts" class="heads"><strong>Reports</strong></h2>
+<br>
+<div class="gallery">
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        {% for report in reports%}
+        <div class="col-lg-4 col-md-6">
+            <a href="{{report.id}}"><img src="{{report.thumbnail.url}}" class="pics"></a>
+            <p><strong>{{report.name}}</strong></p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

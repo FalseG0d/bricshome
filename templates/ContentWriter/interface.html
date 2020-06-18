@@ -1,0 +1,14 @@
+{% extends 'main.html' %}{% load static %} {% block content %}
+<div class="row">
+    <h2 id="reportform" class="heads"><strong>Submit A Report</strong></h2>
+</div>
+
+<div class="row">
+    <div class="content-form">
+        <form action="" method="POST">
+            {% csrf_token %} {% for field in form%}{{field.label}}:<br> {{field}}<br> {% endfor %}
+            <input type="submit" value="Create Report">
+        </form>
+    </div>
+</div>
+{% endblock %}
