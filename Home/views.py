@@ -92,7 +92,7 @@ def mail(request):
             smtp.sendmail('email',sender_email,msg)
 
             sub="Message Recieved By DarkLight"
-            body='Dear '+name+', This is to notify that your message has been recieved by DarkLight Photography.'
+            body='Dear '+name+', This is to notify that your message has been recieved by BRICS.'+'\n'+'You will hear from us soon.'
             msg=f'Subject:{sub}\n\n{body}'
             
             smtp.sendmail('email',reciever_email,msg)
