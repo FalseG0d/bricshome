@@ -7,6 +7,7 @@ admin.site.site_title="BRICS"
 
 
 # Register your models here.
+admin.site.register(Associated_Company)
 admin.site.register(Slider)
 admin.site.register(Event)
 admin.site.register(GalleryImage)

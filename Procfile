@@ -1,0 +1,1 @@
+web: gunicorn bricshome.wsgi --log-file -

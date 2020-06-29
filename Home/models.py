@@ -2,6 +2,16 @@ from django.db import models
 import datetime
 
 # Create your models here.
+
+class Associated_Company(models.Model):
+    image=models.ImageField(upload_to='images/company')
+    name=models.CharField(max_length=20)
+    link=models.CharField(max_length=100)
+    width=models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
 class Slider(models.Model):
     image=models.ImageField(upload_to='images/slider')
     name=models.CharField(max_length=20)

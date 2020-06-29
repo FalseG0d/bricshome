@@ -1,4 +1,4 @@
-{% extends 'main.html' %}{% load static %} {% block content %}
+{% extends 'indexmain.html' %}{% load static %} {% block content %}
 <!-- slider -->
 <div id="home" class="carousel slide" data-ride="carousel" data-interval="8000">
 
@@ -49,6 +49,7 @@
     <p class="pad">{{about.about_abstract}}</p>
     <br>
     <a class="btn btn-success" style="float: right;" href="{% url 'about' %}">View All</a>
+    <a class="btn btn-warning" style="float: left;" href="{% url 'profile' %}">Speacial Thanks To</a>
 
 </div>
 
@@ -142,7 +143,7 @@
         </div>
     </div>
 </div>
-
+<!--Map-->
 <div class="contact">
     <h2 class="dist"><strong>Better Yet See You In Person!!!</strong></h2>
     <section>
@@ -150,8 +151,9 @@
     </section>
     <p class="dist"><strong>We love our customers, so feel free to visit during normal business hours.</strong></p>
 
-    <a type="btn" class="btn btn-success btn-lg" target="blank" href="https://web.whatsapp.com/"><strong>Message us on Whatsapp</strong><br>{{about.number}}</a>
+    <a type="btn" class="btn btn-success btn-lg" target="blank" href="https://web.whatsapp.com/send?phone=+91 7452922409&amp;text=Hello Brics!!" target="_blank">Message Us On Whatsapps</a>
 
+    <!--Links-->
     <h2 class="dist"><strong>BRICS International Forum</strong></h4>
         <section style="align-items: center;">
             <div class="row">
@@ -160,5 +162,19 @@
                 {% endfor %}
             </div>
         </section>
-</div>
+</div><br><br>
+
+
+<!--Associated Companies-->
+<div class="row">
+    <div class="row" style="text-align: center;">
+        <h1><strong>Associated Companies</strong></h1>
+    </div>
+    <div class="row" style="align-items: center;text-align: center;">
+        {% for company in companies %}
+        <a href="{{company.link}}"><img style="padding: 2%;width: {{company.width}}%;" src="{{company.image.url}}" alt=""></a>
+        {% endfor %}
+    </div>
+</div><br><br>
+
 <hr> {% endblock %}

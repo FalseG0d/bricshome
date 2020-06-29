@@ -4,7 +4,6 @@ import smtplib, ssl
 
 # Create your views here.
 def home(request):
-    
     sliders=Slider.objects.all()
     event=Event.objects.all()[0]
     about=About.objects.all()[0]
@@ -12,6 +11,7 @@ def home(request):
     videos=Video.objects.all()[:5]
     images=GalleryImage.objects.all()[:6]
     links=Link.objects.all()
+    company=Associated_Company.objects.all()
     context={
         'sliders':sliders,
         'event':event,
@@ -20,6 +20,7 @@ def home(request):
         'links':links,
         'videos':videos,
         'report':report,
+        'companies':company,
     }
     return render(request,"home/index.html",context)
 
